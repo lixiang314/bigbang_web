@@ -1,11 +1,44 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title><%= title %></title>
+
+<head>
+    <title>test</title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
-  </head>
-  <body>
-    <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
-  </body>
+
+</head>
+
+<body>
+    <p class="bb-text">气球在我手上，我牵着你瞎逛 有话想对你讲，你眼睛却装忙。</p>
+    <p class="bb-list"></p>
+</body>
+
+<script src="https://cdn.bootcss.com/jquery/1.10.1/jquery.min.js"></script>
+<script type="text/javascript">
+$('.bb-text').click(function(){
+  bigbang($(this).text());
+
+})
+    function bigbang(text) {
+        $.ajax({
+            url: 'ajax/split',
+            type: 'post',
+            async: true,
+            data: {
+                textStr: text
+            },
+            dataType: 'json',
+            success: function(data) {
+
+              var _list = data.textArr;
+              var _html = [];
+              for(i in _list){
+                _html.push('<span>'+_list[i]+'</span>');
+              }
+
+              $('.bb-list').html(_html.join(''));
+            }
+        });
+    }
+</script>
+
 </html>

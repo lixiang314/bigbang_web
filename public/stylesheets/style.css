@@ -6,3 +6,17 @@ body {
 a {
   color: #00B7FF;
 }
+.bb-list {
+    display: inline-block;
+    margin: 10px;
+
+}
+.bb-list span {
+  display: inline-block;
+margin: 0.3rem;
+color: #fff;
+padding: 0.3rem 0.4rem;
+background-color: #5ca6f1;
+border: 1px solid #00f;
+border-radius: 5px;
+}
